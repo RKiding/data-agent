@@ -1,0 +1,90 @@
+以下是一些常见的金融数据清洗说明及对应的 Python 处理代码示例：
+
+---
+
+### 1. 缺失值处理
+
+**说明**：金融数据常因停牌、节假日等原因出现缺失。常用方法有删除、均值/中位数填充、前向/后向填充等。
+
+```python
+import pandas as pd
+
+# 删除含缺失值的行
+df = df.dropna()
+
+# 用均值填充数值型缺失
+df = df.fillna(df.mean())
+
+# 用前一个有效值填充
+df = df.fillna(method='ffill')
+```
+
+---
+
+### 2. 异常值检测与处理
+
+**说明**：金融数据中可能存在极端异常值（如价格暴涨暴跌），可用统计方法检测并处理。
+
+```python
+import numpy as np
+
+# 3σ原则剔除异常值
+mean = df['close'].mean()
+std = df['close'].std()
+df = df[(df['close'] > mean - 3*std) & (df['close'] < mean + 3*std)]
+
+# IQR方法
+Q1 = df['close'].quantile(0.25)
+Q3 = df['close'].quantile(0.75)
+IQR = Q3 - Q1
+df = df[(df['close'] >= Q1 - 1.5*IQR) & (df['close'] <= Q3 + 1.5*IQR)]
+```
+
+---
+
+### 3. 时间格式标准化
+
+**说明**：金融数据常包含时间字段，需统一格式便于分析。
+
+```python
+df['date'] = pd.to_datetime(df['date'])
+df = df.sort_values('date')
+```
+
+---
+
+### 4. 去除重复数据
+
+**说明**：有时数据源会重复抓取，需去重。
+
+```python
+df = df.drop_duplicates()
+```
+
+---
+
+### 5. 特征工程示例
+
+**说明**：如构造移动平均、收益率等新特征。
+
+```python
+# 计算5日均线
+df['ma5'] = df['close'].rolling(window=5).mean()
+
+# 计算日收益率
+df['return'] = df['close'].pct_change()
+```
+
+---
+
+### 6. 分类变量编码
+
+**说明**：如将“行业”字段转为独热编码。
+
+```python
+df = pd.get_dummies(df, columns=['industry'])
+```
+
+---
+
+这些是金融数据清洗中常见的说明和代码示例，可根据实际业务需求灵活调整。

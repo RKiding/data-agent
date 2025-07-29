@@ -1,0 +1,263 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Data Science Analysis Report</title>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: #333; }
+            .container { max-width: 1200px; margin: 0 auto; }
+            h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+            h2 { color: #2980b9; margin-top: 30px; }
+            .summary-box { background-color: #f8f9fa; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; }
+            .data-overview { display: flex; gap: 30px; margin: 20px 0; }
+            .data-card { background-color: #f8f9fa; padding: 15px; border-radius: 5px; flex: 1; }
+            .insights { background-color: #e8f4fc; padding: 20px; border-radius: 5px; margin: 20px 0; }
+            .footer { margin-top: 40px; text-align: center; font-size: 0.9em; color: #7f8c8d; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Data Science Analysis Report</h1>
+            <p class="footer">Generated on 2025-07-06</p>
+            
+            <h2>Executive Summary</h2>
+            <div class="summary-box">
+                <p>This report summarizes the findings from the analysis of a dataset containing 11363 records and 25 features. 
+                The exploratory data analysis revealed key patterns and characteristics in the data. 
+                No model was trained as part of this analysis.</p>
+            </div>
+            
+            <h2>Data Overview</h2>
+            <div class="data-overview">
+                <div class="data-card">
+                    <h3>Dataset Dimensions</h3>
+                    <p>Rows: 11363</p>
+                    <p>Columns: 25</p>
+                </div>
+                <div class="data-card">
+                    <h3>Data Sample</h3>
+                    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>price_change</th>
+      <th>high_low_spread</th>
+      <th>pct_change</th>
+      <th>sma_5</th>
+      <th>ema_5</th>
+      <th>sma_10</th>
+      <th>ema_10</th>
+      <th>sma_20</th>
+      <th>ema_20</th>
+      <th>rsi</th>
+      <th>bb_ma</th>
+      <th>bb_upper</th>
+      <th>bb_lower</th>
+      <th>volume_pct_change</th>
+      <th>volume_ma_5</th>
+      <th>volume_ma_20</th>
+      <th>typical_price</th>
+      <th>money_flow</th>
+      <th>macd</th>
+      <th>macd_signal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.58</td>
+      <td>18.59</td>
+      <td>18.58</td>
+      <td>18.59</td>
+      <td>651</td>
+      <td>0.595123</td>
+      <td>-0.280477</td>
+      <td>0.601473</td>
+      <td>-0.240343</td>
+      <td>-0.258670</td>
+      <td>-0.22783</td>
+      <td>-0.258413</td>
+      <td>-0.18599</td>
+      <td>-0.257895</td>
+      <td>0.936123</td>
+      <td>-0.18599</td>
+      <td>-0.15507</td>
+      <td>-0.216075</td>
+      <td>0.016746</td>
+      <td>-0.561056</td>
+      <td>-0.780004</td>
+      <td>-0.263954</td>
+      <td>-0.399672</td>
+      <td>-0.043843</td>
+      <td>-0.046386</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>18.58</td>
+      <td>18.60</td>
+      <td>18.56</td>
+      <td>18.60</td>
+      <td>3719</td>
+      <td>1.197253</td>
+      <td>1.027650</td>
+      <td>1.209988</td>
+      <td>-0.240343</td>
+      <td>-0.253588</td>
+      <td>-0.22783</td>
+      <td>-0.255638</td>
+      <td>-0.18599</td>
+      <td>-0.256439</td>
+      <td>0.936123</td>
+      <td>-0.18599</td>
+      <td>-0.15507</td>
+      <td>-0.216075</td>
+      <td>0.016746</td>
+      <td>-0.561056</td>
+      <td>-0.780004</td>
+      <td>-0.263954</td>
+      <td>-0.357047</td>
+      <td>-0.006581</td>
+      <td>-0.038489</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.62</td>
+      <td>18.62</td>
+      <td>18.62</td>
+      <td>18.62</td>
+      <td>500</td>
+      <td>-0.007007</td>
+      <td>-0.716520</td>
+      <td>-0.007042</td>
+      <td>-0.240343</td>
+      <td>-0.240037</td>
+      <td>-0.22783</td>
+      <td>-0.247819</td>
+      <td>-0.18599</td>
+      <td>-0.252209</td>
+      <td>0.936123</td>
+      <td>-0.18599</td>
+      <td>-0.15507</td>
+      <td>-0.216075</td>
+      <td>-0.040663</td>
+      <td>-0.561056</td>
+      <td>-0.780004</td>
+      <td>-0.213175</td>
+      <td>-0.401757</td>
+      <td>0.096715</td>
+      <td>-0.010280</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>18.61</td>
+      <td>18.61</td>
+      <td>18.60</td>
+      <td>18.60</td>
+      <td>400</td>
+      <td>-0.609137</td>
+      <td>-0.280477</td>
+      <td>-0.614576</td>
+      <td>-0.240343</td>
+      <td>-0.241166</td>
+      <td>-0.22783</td>
+      <td>-0.246971</td>
+      <td>-0.18599</td>
+      <td>-0.251295</td>
+      <td>0.936123</td>
+      <td>-0.18599</td>
+      <td>-0.15507</td>
+      <td>-0.216075</td>
+      <td>-0.033814</td>
+      <td>-0.561056</td>
+      <td>-0.780004</td>
+      <td>-0.238564</td>
+      <td>-0.403154</td>
+      <td>0.101517</td>
+      <td>0.013305</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>18.60</td>
+      <td>18.60</td>
+      <td>18.60</td>
+      <td>18.60</td>
+      <td>900</td>
+      <td>-0.007007</td>
+      <td>-0.716520</td>
+      <td>-0.007042</td>
+      <td>-0.240343</td>
+      <td>-0.241919</td>
+      <td>-0.22783</td>
+      <td>-0.246276</td>
+      <td>-0.18599</td>
+      <td>-0.250467</td>
+      <td>0.936123</td>
+      <td>-0.18599</td>
+      <td>-0.15507</td>
+      <td>-0.216075</td>
+      <td>-0.018891</td>
+      <td>-0.561056</td>
+      <td>-0.780004</td>
+      <td>-0.243642</td>
+      <td>-0.396204</td>
+      <td>0.103622</td>
+      <td>0.032619</td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div>
+            
+            
+        <h2>Exploratory Data Analysis</h2>
+        <p>Key findings from EDA:</p>
+        <ul>
+            <li>Missing values: N/A</li>
+            <li>Data types: N/A</li>
+            <li>Correlation analysis: N/A</li>
+            <li>Outlier detection: N/A</li>
+        </ul>
+        
+            
+            
+    <h2>Model Results</h2>
+    <p>No model results were provided for this analysis.</p>
+    
+            
+            
+        <h2>Visualizations</h2>
+        <p>The analysis includes 23 key visualizations that help illustrate the data patterns and relationships.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <img src="visualizations/price_volume_analysis.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/distribution_volume.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/scatter_plots.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/bollinger_bands.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/distribution_pct_change.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/boxplot_price_change.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/boxplot_volume.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/money_flow_index.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/distribution_price_change.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/price_direction_count.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/timeseries_rsi.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/correlation_heatmap.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/feature_distributions.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/time_series_plots.pdf" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/boxplot_pct_change.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/all_visualizations.pdf" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/timeseries_ema_5.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/price_trends.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/macd_signal.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/timeseries_macd.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/box_plots.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/scatter_volume_price_change.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;"><img src="visualizations/timeseries_sma_5.png" style="max-width: 300px; height: auto; border: 1px solid #ddd;">
+        </div>
+        
+            
+            <h2>Key Insights and Recommendations</h2>
+            <div class="insights">
+                <h3>Main Findings</h3>
+                <ul>
+                    <li>The dataset appears to be well-structured with a mix of numerical and categorical features</li>
+                    <li>Initial analysis shows interesting patterns that warrant further investigation</li>
+                    <li>Visualizations highlight key relationships between variables</li>
+                </ul>
+                
+                <h3>Recommendations</h3>
+                <ul>
+                    <li>Consider additional feature engineering to improve model performance</li>
+                    <li>Address any data quality issues identified during EDA</li>
+                    <li>Explore more advanced modeling techniques if predictive performance is a key objective</li>
+                </ul>
+            </div>
+            
+            <div class="footer">
+                <p>Report generated by Data Science Report Generation Agent</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

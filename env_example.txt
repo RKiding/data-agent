@@ -1,0 +1,12 @@
+# DeepSeek API配置
+# 请从 https://platform.deepseek.com/ 获取您的API密钥
+# 将此文件重命名为 .env 并填入您的实际API密钥
+
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+
+# 其他可选配置
+# 模型名称（可选，默认为 deepseek:deepseek-chat）
+# DEEPSEEK_MODEL=deepseek:deepseek-chat
+
+# 温度参数（可选，默认为 1.0）
+# DEEPSEEK_TEMPERATURE=1.0 
